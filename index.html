@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>極秘結婚招待状 - Shinichi & Ran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #0a0a0a, #1f1f1f);
+      font-family: 'Sawarabi Mincho', serif;
+      color: #fff;
+      overflow-x: hidden;
+    }.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.cover {
+  border: 3px dashed red;
+  padding: 30px;
+  background: #111;
+  animation: pulse 2s infinite;
+}
+
+.cover h1 {
+  color: red;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.cover p {
+  font-size: 1.2rem;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.cover button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.cover button:hover {
+  background: #ff5555;
+}
+
+.invitation {
+  background: rgba(26, 26, 26, 0.95);
+  padding: 30px;
+  border: 2px solid #444;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  max-width: 800px;
+  animation: fadeIn 2s ease-in;
+  display: none;
+}
+
+.invitation.show {
+  display: block;
+  animation: fadeIn 2s ease-in;
+}
+
+.invitation h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.invitation p, .invitation a, ul li {
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+
+.invitation a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+
+.invitation a:hover {
+  text-decoration: underline;
+}
+
+blockquote {
+  font-style: italic;
+  margin-top: 20px;
+  color: #ccc;
+  border-left: 3px solid #666;
+  padding-left: 15px;
+}
+
+.blue {
+  color: #4dd0e1;
+}
+
+.pink {
+  color: #f48fb1;
+}
+
+.portrait {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px #999;
+  transition: transform 0.5s;
+}
+
+.portrait:hover {
+  transform: scale(1.05);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #333;
+  transition: transform 0.3s ease, opacity 1s ease-in-out;
+  opacity: 0;
+  animation: fadeGallery 3s forwards;
+}
+
+.gallery img:nth-child(2) { animation-delay: 0.5s; }
+.gallery img:nth-child(3) { animation-delay: 1s; }
+.gallery img:nth-child(4) { animation-delay: 1.5s; }
+
+.sakura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -50px;
+  width: 15px;
+  height: 15px;
+  background: pink;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px red; }
+  50% { box-shadow: 0 0 20px red; }
+  100% { box-shadow: 0 0 10px red; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeGallery {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+  </style>
+</head>
+<body>
+  <audio src="conan.mp3" autoplay loop hidden></audio>
+  <div class="sakura"></div>
+  <div class="container">
+    <div class="cover">
+      <h1>極秘文書</h1>
+      <p>ファイル番号: 4869-X</p>
+      <button id="openBtn">開く</button>
+    </div><div class="invitation" id="invitation">
+  <h2>結婚式のご案内</h2>
+  <p>この文書は機密指定されています。本件は、長年の友情と数々の困難を乗り越えたふたり、名探偵「工藤新一」とその幼馴染である「毛利蘭」の婚姻に関する正式な記録です。数えきれない事件を共に解決し、数多の別れと再会を経て、ついにふたりは永遠の絆を誓います。この招待状は、あなたをその歴史的な瞬間へと招待するための証拠です。ご参列いただき、新たな物語の始まりを共に見届けてください。</p>
+  <img src="shinichi.png" class="portrait" alt="Shinichi">
+  <img src="ran.png" class="portrait" alt="Ran">
+  <p>新郎：<strong>工藤新一</strong> (Shinichi Kudo)</p>
+  <p>新婦：<strong>毛利蘭</strong> (Ran Mouri)</p>
+  <p>日付：<strong>2025年9月19日</strong></p>
+  <p>場所：<strong>明治神宮</strong>（Meiji Shrine, Tokyo）</p>
+  <a href="https://maps.app.goo.gl/mvgrf949WpK2FMyd6" target="_blank">📍 場所を開く</a>
+  <p>ドレスコード：<span class="blue">青 (男性)</span> ・ <span class="pink">ピンク (女性)</span></p>
+  <p>ご両親：</p>
+  <ul>
+    <li><strong>新一:</strong> 工藤優作 (Yusaku Kudo) & 工藤有希子 (Yukiko Kudo)</li>
+    <li><strong>蘭:</strong> 毛利小五郎 (Kogoro Mouri) & 妃英理 (Eri Kisaki)</li>
+  </ul>
+  <blockquote>
+    「告白ではなく、証拠で愛を語れ。」
+  </blockquote>
+  <div class="gallery">
+    <img src="shinran1.png" alt="shinran1">
+    <img src="shinran2.png" alt="shinran2">
+    <img src="shinran3.png" alt="shinran3">
+    <img src="shinran4.png" alt="shinran4">
+  </div>
+</div>
+
+  </div>  <script>
+    const btn = document.getElementById('openBtn');
+    const invitation = document.getElementById('invitation');
+    const cover = document.querySelector('.cover');
+    btn.onclick = () => {
+      cover.style.opacity = 1;
+      const fadeOut = setInterval(() => {
+        if (cover.style.opacity > 0) {
+          cover.style.opacity -= 0.05;
+        } else {
+          clearInterval(fadeOut);
+          cover.style.display = 'none';
+          invitation.classList.add('show');
+        }
+      }, 50);
+    }
+
+    const sakuraContainer = document.querySelector('.sakura');
+    for (let i = 0; i < 30; i++) {
+      const flower = document.createElement('div');
+      flower.classList.add('petal');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDelay = Math.random() * 5 + 's';
+      sakuraContainer.appendChild(flower);
+    }
+  </script></body>
+</html>
